@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title> Asir & Almiah</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef3f8;
+            min-height: 100vh;
+        }
+
+        /* =========================
+           CONTAINER UTAMA
+        ========================= */
+
+        .cover {
+            width: 100%;
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 20px;
+        }
+
+        .cover-card {
+            position: relative;
+
+            width: 100%;
+            max-width: 600px;
+
+            min-height: 900px;
+
+            background-image: url("assets/images/cover.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            border-radius: 15px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 10px 40px rgba(0,0,0,0.20);
+        }
+
+
+        /* =========================
+           NAMA TAMU
+        ========================= */
+
+        /* =========================
+   NAMA TAMU
+========================= */
+
+.guest-name {
+    position: absolute;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    bottom: 18%;
+
+    width: 75%;
+
+    text-align: center;
+
+    font-family: Georgia, serif;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    line-height: 1.2;
+
+    color: #294b70;
+
+    /* BACKGROUND PUTIH HANYA DI BELAKANG NAMA */
+    background: rgba(255, 255, 255, 0.90);
+
+    padding: 6px 15px;
+
+    border-radius: 8px;
+
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+
+    z-index: 10;
+}
+
+
+/* =========================
+   TOMBOL BUKA UNDANGAN
+========================= */
+
+.open-container {
+    position: absolute;
+
+    bottom: 8%;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    text-align: center;
+    width: 100%;
+}
+
+
+.open-button {
+    border: none;
+
+    background: #294b70;
+
+    color: white;
+
+    padding: 11px 27px;
+
+    border-radius: 30px;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    cursor: pointer;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.20);
+
+    transition: 0.3s;
+}
+
+
+.open-button:hover {
+    transform: scale(1.04);
+
+    background: #203c5a;
+}
+
+
+/* =========================
+   TAMPILAN HP
+========================= */
+
+@media (max-width: 600px) {
+
+    .guest-name {
+        bottom: 18%;
+
+        width: 75%;
+
+        font-size: 19px;
+    }
+
+    .open-container {
+        bottom: 8%;
+    }
+
+    .open-button {
+        padding: 10px 25px;
+
+        font-size: 14px;
+    }
+}
+
+
+        
+
+
+        /* =========================
+           RESPONSIVE HP
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            .cover {
+                padding: 0;
+            }
+
+            .cover-card {
+
+                min-height: 100vh;
+
+                border-radius: 0;
+
+                box-shadow: none;
+            }
+
+            .guest-container {
+                bottom: 25%;
+            }
+
+            .guest-title {
+                font-size: 20px;
+            }
+
+            .guest-name {
+                font-size: 20px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     COVER UNDANGAN
+========================= -->
+
+<section class="cover">
+
+    <div class="cover-card">
+
+
+        <!-- NAMA TAMU -->
+        <div class="guest-container">
+
+            <div
+                class="guest-name"id="guestName">
+                <!-- Tamu Undangan -->
+            </div>
+
+        </div>
+
+
+        <!-- TOMBOL BUKA -->
+        <div class="open-container">
+
+            <button
+                class="open-button"
+                onclick="openInvitation()">
+
+                 Buka Undangan
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     AUDIO
+========================= -->
+
+
+
+<script>
+
+
+/* ==========================================
+   MENGAMBIL NAMA TAMU DARI URL
+========================================== */
+
+function getGuestName() {
+
+    const params = new URLSearchParams(
+        window.location.search
+    );
+
+    const guest = params.get("to");
+
+    return guest ? guest.trim() : "";
+}
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const guestName = getGuestName();
+
+    document.getElementById("guestName").textContent = guestName;
+
+});
+
+
+
+/* ==========================================
+   MENAMPILKAN NAMA TAMU
+========================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const guestName =
+            getGuestName();
+
+        document.getElementById(
+            "guestName"
+        ).textContent = guestName;
+
+    }
+);
+
+
+
+/* ==========================================
+   BUKA UNDANGAN 
+========================================== */
+
+function openInvitation() {
+
+    window.location.href =
+        "https://templatebypar.my.canva.site/asir-almiah";
+
+}
+
+</script>
+
+
+</body>
+</html>
